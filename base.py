@@ -3,13 +3,16 @@ import pyrebase
 from dotenv import load_dotenv
 
 load_dotenv('.env')
-apiKey = os.environ.get('APIKEY')
 
-firebaseConfig = {'apiKey': apiKey,
-                  'authDomain': "python-firebase-5af18.firebaseapp.com",
-                  'projectId': "python-firebase-5af18",
-                  'storageBucket': "python-firebase-5af18.appspot.com",
-                  'messagingSenderId': "179444754339",
-                  'appId': "1:179444754339:web:85f74a033a46a31f135c16",
-                  'measurementId': "G-99M299LF01"
+
+firebaseConfig = {'apiKey': os.environ.get('API_KEY'),
+                  'authDomain': os.environ.get('AUTH_DOMAIN'),
+                  'projectId': os.environ.get('PROJECT_ID'),
+                  'storageBucket': os.environ.get('STORAGE_BUCKET'),
+                  'messagingSenderId': os.environ.get('MESSAGING_SENDER_ID'),
+                  'appId': os.environ.get('APP_ID'),
+                  'measurementId': os.environ.get('MEASUREMENT_ID')
                   }
+
+print(firebaseConfig)
+
