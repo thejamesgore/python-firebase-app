@@ -1,3 +1,4 @@
+import os.path
 import pyrebase
 from config import firebaseConfig
 
@@ -17,7 +18,7 @@ def login():
         password=input("Enter your password: ")
 
         try:
-            auth.sign_in_with_email_and_password(email,password)
+            user = auth.sign_in_with_email_and_password(email,password)
             print("Signed in successfully")
             break
         except:
@@ -27,6 +28,10 @@ def login():
             else:
                 print("Too many login attempts")
                 break
+    
+    with open('.token', 'a') as file:
+        file.write(user['idToken'])
+
 
 
 
