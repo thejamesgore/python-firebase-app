@@ -27,7 +27,6 @@ def upload():
     print("File uploaded successfully.")
     print(storage.child(filename).get_url(None))
 
-
 # Downloading files
 def download():
 
