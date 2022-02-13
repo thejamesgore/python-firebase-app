@@ -19,7 +19,24 @@ firebase=pyrebase.initialize_app(firebaseConfig)
 auth=firebase.auth()
 
 # Authentication
+# Login
 email=input("Enter your email: ")
 password=input("Enter your password: ")
 
-auth.sign_in_with_email_and_password(email,password)
+try:
+    auth.sign_in_with_email_and_password(email,password)
+    print("Signed in successfully")
+except:
+    print("Invalid user or password. Try again.")
+
+# SignUp
+email=input("Enter your email")
+password=input("Enter your password")
+confirmpass=input("Confirm your password")
+
+if password == confirmpass:
+    try:
+        auth.create_user_with_email_and_password(email, password)
+        print("Account created succesfully")
+    except:
+        print("Account already exists")
